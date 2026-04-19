@@ -1,0 +1,37 @@
+.bg {
+  --background: linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+.card {
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+ion-card-title {
+  color: #1e3a8a;
+  font-weight: bold;
+}
+
+.input-item {
+  margin-bottom: 12px;
+}
+
+.btn-group {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result {
+  background: rgba(0,0,0,0.3);
+}
+
+ion-item {
+  transition: 0.2s;
+}
+
+ion-item:hover {
+  transform: scale(1.02);
+}

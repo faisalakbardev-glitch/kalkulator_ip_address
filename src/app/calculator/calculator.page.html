@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kalkulator IP Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bg">
+
+  <!-- INPUT -->
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>Masukan IP Address</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item class="input-item">
+        <ion-label position="stacked">IP Address</ion-label>
+        <ion-input type="text" inputmode="decimal" [(ngModel)]="ipAddress" placeholder="192.168.1.0" maxlength="15"></ion-input>
+      </ion-item>
+
+      <ion-note color="danger" *ngIf="ipAddress && !isValidIP(ipAddress)">
+        Format IP tidak valid
+      </ion-note>
+
+      <ion-item class="input-item">
+        <ion-label position="stacked">Subnet</ion-label>
+        <ion-select [(ngModel)]="subnet">
+          <ion-select-option value="/8">/8</ion-select-option>
+          <ion-select-option value="/16">/16</ion-select-option>
+          <ion-select-option value="/24">/24</ion-select-option>
+          <ion-select-option value="/25">/25</ion-select-option>
+          <ion-select-option value="/26">/26</ion-select-option>
+          <ion-select-option value="/27">/27</ion-select-option>
+          <ion-select-option value="/28">/28</ion-select-option>
+          <ion-select-option value="/29">/29</ion-select-option>
+          <ion-select-option value="/30">/30</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="btn-group">
+        <ion-button 
+          expand="block" 
+          (click)="calculate()"
+          [disabled]="!isValidIP(ipAddress)">
+          Hitung
+        </ion-button>
+
+        <ion-button expand="block" color="dark" (click)="reset()">
+          Reset
+        </ion-button>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- RESULT -->
+  <ion-card *ngIf="result" class="card result">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Hasil</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item><ion-label>Kelas</ion-label><ion-note slot="end">{{result.class}}</ion-note></ion-item>
+        <ion-item><ion-label>Network</ion-label><ion-note slot="end">{{result.network}}</ion-note></ion-item>
+        <ion-item><ion-label>Broadcast</ion-label><ion-note slot="end">{{result.broadcast}}</ion-note></ion-item>
+        <ion-item><ion-label>Subnet</ion-label><ion-note slot="end">{{result.subnet}}</ion-note></ion-item>
+        <ion-item><ion-label>Range</ion-label><ion-note slot="end">{{result.range}}</ion-note></ion-item>
+        <ion-item><ion-label>Host</ion-label><ion-note slot="end">{{result.host}}</ion-note></ion-item>
+      </ion-list>
+
+      <ion-button expand="block" (click)="copyResult()">Copy</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- HISTORY -->
+  <ion-card *ngIf="history.length > 0" class="card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">History</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item 
+          *ngFor="let item of history"
+          (click)="showDetail(item)"
+          button>
+          <ion-label>
+            {{item.ip}} {{item.subnet}}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" color="danger" (click)="clearHistory()">
+        Hapus History
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light">
+    <div (click)="openInstagram()" style="text-align: center; padding: 10px; cursor: pointer;">
+      <p style="margin: 0; font-size: 0.7rem; color: #666;">© 2026 Kalkulator IP Address</p>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 4px;">
+        <ion-icon name="logo-instagram" style="color: #e1306c; font-size: 1.2rem;"></ion-icon>
+        <span style="font-weight: bold; font-size: 0.9rem;">@isal.doan6</span>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

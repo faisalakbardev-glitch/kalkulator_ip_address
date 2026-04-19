@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kalkulator IP Address</string>
+    <string name="title_activity_main">Kalkulator IP Address</string>
+    <string name="package_name">com.faisal.ipcalc</string>
+    <string name="custom_url_scheme">com.faisal.ipcalc</string>
+</resources>

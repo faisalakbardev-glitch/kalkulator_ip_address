@@ -1,0 +1,7 @@
+{
+  "name": "calculator_IP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
