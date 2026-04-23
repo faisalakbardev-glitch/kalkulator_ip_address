@@ -25,10 +25,10 @@ android {
         applicationId "com.faisal.ipcalc"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        
+
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir
              ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
@@ -39,7 +39,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            
+
             // PAKSA PAKAI CONFIG VERIFIKASI AGAR SHA-256 COCOK DENGAN PLAY CONSOLE
             signingConfig signingConfigs.config_verification
         }
